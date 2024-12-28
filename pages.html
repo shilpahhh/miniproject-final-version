@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GetFit-googlesearch</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+  <div class="menu">
+<img src="./Alternative1.png" width="17%" height="16%" style="border-radius: 9%;">
+    <nav>
+      <ul class="link">
+        <li><a href="./aboutus.html" style="padding-right:27px;">ABOUT</a></li>
+        <li><a href="./signuporg.html" style="padding-right:27px;" >CLIENT</a></li>
+        <li><a href="./astrainer.html" style="padding-right:27px;" >TRAINER</a></li>
+        <li><a href="./admin.html" >ADMIN</a></li>
+      </ul>
+    </nav>
+    </div>
+
+  <div class="unsplash">
+    <IMG class="i1" src="victor-freitas-WvDYdXDzkhs-unsplash.jpg">
+
+      <div class="text">
+        <h3  class="h31" align="center">let's transform with <big >GetFit!</big></h3><br>
+        <a href="./signuporg.html"><button class="b1"  style="vertical-align:middle;"><span>JOIN NOW!</span></button></a>
+  </div>
+    </div>
+   
+                                                       <!--page2(about us) -->
+  
+  <div class="page2"><br><br>
+  <h3 class="h32" align="center" >ABOUT US</h3> <br><br>  
+
+  <p class="pd5" align="center">As well as helping the clients to set realistic goals, personal  trainer are the perfect tool to help you achieve . This is ideal
+     for those who are training for<br> a specific event or need   to achieve a certain level of fitness.</p>
+     <br>
+<section class="cards1">
+ <p class="ps1" > Flexibile Workout Times</p>
+  <p class="pd1">  We're all different, and that's what makes us all great!.<br> Each client can choose their workout time.</p>
+
+  <p class="ps2" >Customized Workouts</p>
+  <p class="pd2"> The  online workout coach will recommend you plan <br> of exercises to be done for each body  part. Below <br> are different types of clients for which we 
+      generate personalized plans.
+  </p>
+</section>
+
+<section class="cards2">
+  <p class="ps3" >Proper Diet Plan</p>
+  <p class="pd3" >The personal trainer advises the clients on <br> meal planning , and nutrition strategies to <br> achieve specific  health
+    or  fitness goals such as <br> weight managment , improved energy.
+
+  <p class="ps4" >Motivation &<br> Support</p>
+  <p class="pd4" >Provide encouragement, motivation, and support to help <br> clients stay committed to their fitness goals.
+  <br><br>
+</section>
+
+  </div>
+
+  
+  <div class="page3"> <br><br> 
+    <div class="heading_style">                                            <!--page 3(sign up) -->
+      <div class="heading_style2"><h3 class="h34" >SIGN UP </h3></div>
+    <h2 class="h23">FOR FREE!</h2>
+    </div>
+  <p class="p1">Are You Excited To Join..? Here Is The Chance!.</p>
+  <center>
+    <form id="clients" name="clients" action="insert.php" method="POST" onsubmit="return validateClient()">
+        <input type="text" placeholder="Uname" id="name" name="name"><br>
+        
+        <input type="email"   placeholder="Email" id="email" name="email"><br>
+        
+        <input type="password" placeholder="Password" id="pass" name="pass"><br><br>
+    <a href="./successful.html" style="text-decoration: none;"> <button class="b2">CREATE ACCOUNT</button></a>
+    </form>
+    <p class="p2">You Already Joined? <a  href="./login.html" 
+                                         style="color: white;
+                                                font-family: tw cen mt;  text-decoration: none;">Login  </a> Here</p><br><br>
+
+    </form>
+    <p id="errorMessages" style="color:red;"></p>
+  </center>
+  </div>
+  <script type="text/javascript">
+    function validateClient()
+    {
+    //clearing previous errors
+    document.getElementById('errorMessages').innerHTML = '';
+
+      var name=document.getElementById("name").value.trim();
+      var email=document.getElementById("email").value.trim();
+      var password=document.getElementById("pass").value.trim();
+        
+      var errorMessages = [];
+
+      //validate name
+      if (name === "") {
+        errorMessages.push("Username is required.");
+    }
+
+      //validate email
+      if (email === "") 
+      {
+        errorMessages.push("Email is required.");
+    }
+     else
+      {
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) 
+        {
+            errorMessages.push("Please enter a valid email address.");
+        }
+    }
+
+      //validate password
+      if (password === "") 
+      {
+        errorMessages.push("Password is required.");
+    } 
+    else if (password.length < 8)
+     {
+        errorMessages.push("Password must be at least 8 characters long.");
+    }
+
+    //displaying error if any occur
+    if (errorMessages.length > 0)
+     {
+        document.getElementById('errorMessages').innerHTML = errorMessages.join('<br>');
+        return false; // Prevent form submission
+    }
+
+    //if no error
+    return true;
+  }
+  </script>                          
+                      <!--page 4 (as a trainer) -->
+  
+        
+    <div class="page4"><br>
+      <h3 class="h35" align="center">AS A TRAINER</h3>
+  <img  class="i2" src="./trainer.jpg">
+  <h3 class="h36">Are You A Certified Fitness Trainer !?<br>
+    You  can join as a fitness trainer , only want your valid details and time for help the people to attain their <big>Fitness Goals At Home.</big>
+  </h3>
+          <a href="./coach.php"><button class="b3">IAM A TRAINER</button></a>
+   </div>
+
+          <!--page 5 comment-->
+<div class="page5">
+<div class="heading1">
+
+  <h3 class="h37">Drop Your</h3> <br>
+  <h2 class="h21">Comment</h2> <br>
+  <h2 class="h22">here !</h2>
+
+</div>
+    <div class="commentform">
+      <form action="./comment_insert.php"  id="commentForm" name="commentForm"  method="POST" onsubmit="validateComment()">
+    <div class="input1">
+          <input type="text"  placeholder="Enter username" id="client_name" name="client_name" ><br>
+          <input type="text"  placeholder="Drop your comment here!" id="comment" name="comment" ><br>
+          <a href="./comments2.php"><button class="b4" type="submit">Comment</button></a>  
+    </div>   
+     </form>
+      <p id="errorMessages" style="color:red;"></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+  function validateComment()
+  {
+  //clearing previous errors
+  document.getElementById('errorMessages').innerHTML = '';
+
+    var cli_id=document.getElementById("cli_id").value.trim();
+    var comment=document.getElementById("comment").value.trim();
+    var client_name=document.getElementById("client_name").value.trim();
+      
+    var errorMessages = [];
+
+     //validate uid
+     if (cli_id === "") 
+    {
+      errorMessages.push("uinque id is required.");
+  } 
+  
+  //validate name
+  if (name=== "") {
+      errorMessages.push(" enter username.");
+  }
+
+    //validate comment
+    if (comment=== "") {
+      errorMessages.push(" enter comment.");
+  }
+
+
+}
+</script>                          
+
+
+  <!--page 6 ending-->
+  <div class="page6">
+    <footer>
+     <h3 class="h38" align="right">&#169 COPYRIGHT 2023. ALL RIGHT RESERVED</h3>
+     <h3 class="h39" align="right">Terms & Conditions apply | Privacy & Policy</h3>
+    </footer>
+    </div>
+  
+</div>
+</body>
+</html>
+
+           

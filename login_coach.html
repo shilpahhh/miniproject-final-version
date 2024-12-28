@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GetFit-login_coach</title>
+        <style>
+ 
+ *{
+          margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+        }
+ ._log{
+  margin-top: 295px;
+  margin-left: 785px;
+  border-radius: 12px;
+  width: 40%;
+  height: 56%;
+
+ }
+body{
+  
+  overflow-x: hidden;
+  /* padding:1em; */
+  min-width:100vw;
+  min-height: 100vh;
+ background-repeat: no-repeat;
+}
+h3{
+  padding-right:86px;
+  font-size: 20px;
+    text-align: center;
+    color:black;
+    font-family: tw cen mt;
+}
+ input[type=text] {
+  width: 47%;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 12px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+}
+    .b3{
+    background-color:#24808a;
+    color: whitesmoke;
+    font-size: 15px;
+    margin-right: 20px;
+    font-family:tw cen mt; 
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: black;
+   cursor: pointer;
+   width: 24%;
+}
+.b3:hover {
+    background-color:black;
+    color:whitesmoke;
+  }
+
+
+        </style>
+    </head>
+          <body background="./kittle_paint.png">
+          <div class="_log"><br>
+        <center>
+            <form id="login_coach" name="login_coach"  action="./coach_login_selection.php" method="POST" onsubmit="return validateLogin()">
+              <h3>Trainer Name</h3>
+                <input type="text" id="cname" name="cname" ><br><br>
+                <h3>Enter your unique ID </h3>
+                <input type="text"  id="trainer_id" name="trainer_id" ><br><br>
+            <button class="b3">SUBMIT</button>
+            </form>
+            <p id="errorMessages" style="color:red;"></p>
+          </center>
+        </div>
+        </div>
+        <script type="text/javascript">
+          function validateLogin()
+          {
+          //clearing previous errors
+          document.getElementById('errorMessages').innerHTML = '';
+      
+            var cname=document.getElementById("cname").value.trim();
+            var trainer_id=document.getElementById("trainer_id").value.trim();
+              
+            var errorMessages = [];
+      
+            //validate name
+            if (cname === "") 
+            {
+              errorMessages.push("Username is required.");
+          }
+      
+            //validate id
+            if (trainer_id === "") 
+            {
+              errorMessages.push("ID is required.");
+  
+            }
+          //displaying error if any occur
+          if (errorMessages.length > 0)
+           {
+              document.getElementById('errorMessages').innerHTML = errorMessages.join('<br>');
+              return false;
+               // Prevent form submission
+          }
+      
+          //if no error
+          return true;
+        }
+        </script>             
+        
+
+</body>
+</html> 
+  

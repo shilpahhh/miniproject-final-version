@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>GetFit-signup_client</title>
+        <style>
+          *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  /* padding:1em; */
+  min-width:100vw;
+  min-height: 100vh;
+}
+.p1{
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    padding-left: 535px;
+    font-family:tw cen mt ;
+    color: black;
+  }
+  p.p2{
+    font-size: 25px;
+    display: flex;
+    padding-left: 575px;
+    padding-top: 26px;
+    font-family: tw cen mt;
+    color:black ;
+  }
+  .p2 a:hover{
+    font-size: 34px;
+  }
+  .heading_style{
+   display: flex;
+   flex-direction: row;
+  }
+  .heading_style2{
+    display: flex;
+    padding-left: 408px;
+      width: 103%;
+  }
+  h3.h34{
+    font-size: 78px;
+      color:rgb(236, 225, 225);
+      border-radius: 2%;
+      padding-left: 95px;
+      margin: 22px;
+      font-family: tw cen mt;
+  }
+  h2.h23{
+    font-size: 78px;
+    color:black;
+    padding-right:399px;
+    margin: 12px;
+    font-family: tw cen mt;
+  }
+input[type=text] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color:#A7BEAE;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  border-bottom: 2px solid black;
+}
+input[type=email] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: #A7BEAE;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  border-bottom: 2px solid black;
+}
+input[type=password] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: #A7BEAE;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  border-bottom: 2px solid black;
+}
+.b2{
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-family:tw cen mt;
+    padding: 8px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border-width:3px;
+    border-color:black;
+    transition-duration: 0.4s;
+}
+.b2:hover {
+    background-color:white;
+    color: black;
+  }
+body{
+  background-color: #A7BEAE;
+}
+</style>
+</head>
+<body><br><br>
+  <div class="page3"> <br><br> 
+    <div class="heading_style">                                            <!--page 3(sign up) -->
+      <div class="heading_style2"><h3 class="h34" align="center">SIGN UP </h3></div>
+    <h2 class="h23">FOR FREE!</h2>
+    </div>
+  <p class="p1">Are You Excited To Join..? Here Is The Chance!.</p>
+  <center>
+    <form id="clients" name="clients" action="insert.php" method="POST" onsubmit="return validateClient()">
+        <input type="text" placeholder="Uname" id="name" name="name"><br>
+        
+        <input type="email"   placeholder="Email" id="email" name="email"><br>
+        
+        <input type="password" placeholder="Password" id="pass" name="pass"><br><br>
+    <a href="./successful.html" style="text-decoration: none;"> <button class="b2">CREATE ACCOUNT</button></a>
+    </form>
+    <p class="p2">You Already Joined? <a  href="./login.html" 
+                                         style="color: white;
+                                                font-family: tw cen mt;  text-decoration: none;">Login  </a> Here</p><br><br>
+
+    </form>
+  <p id="errorMessages" style="color:red;"></p>
+</center>
+<script type="text/javascript">
+  function validateClient()
+  {
+  //clearing previous errors
+  document.getElementById('errorMessages').innerHTML = '';
+
+    var name=document.getElementById("name").value.trim();
+    var email=document.getElementById("email").value.trim();
+    var password=document.getElementById("pass").value.trim();
+      
+    var errorMessages = [];
+
+    //validate name
+    if (name === "") {
+      errorMessages.push("Username is required.");
+  }
+
+    //validate email
+    if (email === "") 
+    {
+      errorMessages.push("Email is required.");
+  }
+   else
+    {
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailPattern.test(email)) 
+      {
+          errorMessages.push("Please enter a valid email address.");
+      }
+  }
+
+    //validate password
+    if (password === "") 
+    {
+      errorMessages.push("Password is required.");
+  } 
+  else if (password.length < 8)
+   {
+      errorMessages.push("Password must be at least 8 characters long.");
+  }
+
+  //displaying error if any occur
+  if (errorMessages.length > 0)
+   {
+      document.getElementById('errorMessages').innerHTML = errorMessages.join('<br>');
+      return false; // Prevent form submission
+  }
+
+  //if no error
+  return true;
+}
+</script>                
+</body>
+</html> 
+
+
+
+    
+      

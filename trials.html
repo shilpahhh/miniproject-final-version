@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GetFit-trails</title>
+
+  <style>
+ 
+    *{
+             margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+    }
+   body{
+       border-radius: 12px;
+       background-color:#677D6A;
+    }
+    h3{
+   color:white;
+  padding-top: 34px;
+   font-size: 34px;
+   background-color:black;
+   width: 20%;
+   text-align: center;
+   border-radius: 4%;
+   font-family:garamond;
+    }
+    .comment_list{
+       display: flex;
+   flex-direction:column;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 56px;
+    }
+    .comm1{
+       background-color:rgb(240, 241, 242) ;
+     border-radius: 8px;
+     width: 45%;
+     height:30%;
+     overflow: hidden;
+     margin-left: 67px;
+    }
+    .name{
+       color:black;
+       font-family: garamond;
+       font-size:16px;
+       font-weight: 23%;
+    }
+    .date{
+       color:#6e6b6b;
+       font-family: garamond;
+       font-size:16px;
+    }
+    .comment{
+       color:black;
+       font-family: garamond;
+       font-size:20px;
+    }
+  
+    
+           </style>
+   </head>
+   <body>
+   <h3 class="heading" align="left">COMMENTS</h3>
+   
+ <?php
+   
+   $result = $conn->query("SELECT * FROM comments"); 
+   
+   if ($result->num_rows > 0) {
+       
+       while ($row = $result->fetch_assoc()) {
+           
+           $client_name = htmlspecialchars($row['client_name']);
+           $comment = htmlspecialchars($row['comment']);
+          
+           echo ' <div class="comment_list">
+   
+           <div class="comm1"> 
+            <p class="name">' . $client_name. '</p>
+            <p class="date">' . $created_at . '</p><br>
+                 <p class="comment">' . $comment. '</p>
+        </div>
+        
+         </div>';
+    }
+} else {
+    echo "No additional trainers found.";
+}
+
+
+$conn->close();
+?> 
+         
+       </body>
+   </html>

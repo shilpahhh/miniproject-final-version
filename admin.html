@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GetFit-ADMIN_login</title>
+  <style>
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+  /* padding:1em; */
+  min-width:100vw;
+  min-height: 100vh;
+}
+.admin{
+  display: flex;
+position: relative;
+}
+.admin_bg.img{
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+.admin_form{
+  display: flex;
+background-color: rgb(23, 22, 22);
+height: 754px;
+width: 834px;
+text-align: center;
+justify-content: center;
+padding-top: 345px;
+}
+input[type=text]{
+  width: 159%;
+  height: 9%;
+  border-radius: 8px;
+  
+}
+input[type=password]{
+  width: 159%;
+  height: 9%;
+  border-radius: 8px;
+  
+}
+.b1{
+  border-radius: 11px;
+      background-color: white;
+      color: rgb(0, 0, 0);
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 15px;
+      font-family:tw cen mt; 
+      padding: 8px;
+      cursor: pointer;
+      border-width: 1px;
+      transition-duration: 0.4s;
+     
+  }
+  .b1:hover {
+    background-color: black;
+    color: white;
+    box-shadow:
+    0 10px 15px -3px #ffffff4f,
+    0 4px 6px -2px #04040417;
+  }
+  
+
+</style>
+</head>
+<body >
+  <div class="admin">
+<img src="./adm_bg.png">
+<div class="admin_form">
+   <form id="admin" name="admin" action="./admin_selection.php" method="POST" onsubmit="return validateAdmin()">
+  <input type="text" placeholder=" enter username"    id="name" name="name"><br><br>
+    <input type="password" placeholder=" enter password"    id="pass_word" name="pass_word"><br><br>
+    <button class="b1">OK</button> 
+
+   </form>
+   <p id="errorMessages" style="color:red;"></p></div>
+  </div>
+  <script type="text/javascript">
+    function validateAdmin()
+    {
+    //clearing previous errors
+    document.getElementById('errorMessages').innerHTML = '';
+
+      var uname=document.getElementById("name").value.trim();
+      var password=document.getElementById("pass_word").value.trim();
+        
+      var errorMessages = [];
+
+      //validate name
+      if (uname === "") {
+        errorMessages.push("Username is required.");
+      }
+     
+      //validate password
+      if (password === "") 
+      {
+        errorMessages.push("Password is required.");
+    } 
+    else if (password.length < 5)
+     {
+        errorMessages.push("Password must be at least 5 characters long.");
+    }
+
+    //displaying error if any occur
+    if (errorMessages.length > 0)
+     {
+        document.getElementById('errorMessages').innerHTML = errorMessages.join('<br>');
+        return false; // Prevent form submission
+    }
+
+    //if no error
+    return true;
+  }
+  </script>                          
+</body>
+</html>
